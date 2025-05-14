@@ -49,17 +49,20 @@ func (s *userService) FindAll(page uint, size uint, filter *domain.User) ([]*dom
 
 	var responses []*domain.UserResponseSvc
 	for _, user := range userData {
-		var leaveResponse *domain.AnnualLeaveResponse
-		if leave, ok := annualLeaveMap[user.ID]; ok {
-			leaveResponse = &domain.AnnualLeaveResponse{
-				ID: 	  leave.ID,
-				UserID:    leave.UserID,
-				StartDate: leave.StartDate,
-				EndDate:   leave.EndDate,
-				Status:    leave.Status,
-				Reason:    leave.Reason,
+		var leaveResponse []*domain.AnnualLeaveResponse
+		for _, leave := range annualLeaveData {
+			if user.ID == leave.UserID {
+				leaveResponse = append(leaveResponse, &domain.AnnualLeaveResponse{
+					ID:          leave.ID,
+					UserID:      leave.UserID,
+					StartDate:   leave.StartDate,
+					EndDate:     leave.EndDate,
+					Reason: 	leave.Reason,
+					Status:      leave.Status,
+				})
 			}
 		}
+		
 
 		responses = append(responses, &domain.UserResponseSvc{
 			ID:           user.ID,

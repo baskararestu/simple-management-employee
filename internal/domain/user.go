@@ -79,5 +79,5 @@ type UserResponseSvc struct {
 	PhoneNumber *string `json:"phoneNumber"`
 	Gender 	*string `json:"gender"`
 	RoleName     string  `json:"roleName"`
-	AnnualLeave *AnnualLeaveResponse `json:"annualLeave"`
+	AnnualLeave []*AnnualLeaveResponse `json:"annualLeave"`
 }
