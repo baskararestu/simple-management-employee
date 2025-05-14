@@ -1,0 +1,412 @@
+type: spec.insomnia.rest/5.0
+name: simple-management-employee
+meta:
+  id: wrk_cf55db2f71144925b09a10e0ac4cde30
+  created: 1747211118839
+  modified: 1747211118839
+collection:
+  - name: Auth
+    meta:
+      id: fld_a568ae2656e54a778ffd9337af0ffb18
+      created: 1747211172446
+      modified: 1747211172446
+      sortKey: -1747211172446
+    children:
+      - url: "{{local}}/api/auth/login"
+        name: login
+        meta:
+          id: req_ab44c549cc334749b82acfc3b24e5f93
+          created: 1747211174648
+          modified: 1747218114774
+          isPrivate: false
+          sortKey: -1747211174648
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "email": "pekerjaZZZ@example.com",
+              "password": "password"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{local}}/api/auth/register/admin"
+        name: create admin
+        meta:
+          id: req_9bb4bc13459049909eea21e7dadffb65
+          created: 1747212526714
+          modified: 1747215222574
+          isPrivate: false
+          sortKey: -1747212526714
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "firstName": "admin",
+              "lastName": "ke555",
+              "email": "adminke555@example.com",
+              "password": "password",
+              "roleId": "23d504f7-abc9-4356-a5ba-92f491545265"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDcyOTg4NDksImlhdCI6MTc0NzIxMjQ0OSwicm9sZV9pZCI6IjU3YTJjNWRkLTI0ZTctNDY2ZC1iNzExLWIyNjdlNjFjNzIwNSIsInVzZXJfaWQiOiJmN2M3N2M4MC0wOTZlLTRjNWEtYjQ0My02M2IyYTRjN2NmY2IifQ.WCpYTnv_5g99N21XiUL-GStxnH4RJBfqBqCxaxjTrQM
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{local}}/api/auth/register/employee"
+        name: create employee
+        meta:
+          id: req_007ab86a68b34fdeba197f8fc6145dca
+          created: 1747213041676
+          modified: 1747216495930
+          isPrivate: false
+          sortKey: -1747211850681
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "firstName": "pekerja",
+              "lastName": "ke222222222",
+              "email": "pekerjake22222222222@example.com",
+              "password": "password",
+            	"Address":"Jalan ghaib",
+            	"PhoneNumber":"000999888",
+            	"Gender":"MALE",
+              "roleId": "5288949c-4271-4617-aa55-1bd070d5aebd"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDcyOTg4NDksImlhdCI6MTc0NzIxMjQ0OSwicm9sZV9pZCI6IjU3YTJjNWRkLTI0ZTctNDY2ZC1iNzExLWIyNjdlNjFjNzIwNSIsInVzZXJfaWQiOiJmN2M3N2M4MC0wOTZlLTRjNWEtYjQ0My02M2IyYTRjN2NmY2IifQ.WCpYTnv_5g99N21XiUL-GStxnH4RJBfqBqCxaxjTrQM
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: users
+    meta:
+      id: fld_3c54746c249441a39b010916bd6ccbf4
+      created: 1747213200594
+      modified: 1747213200594
+      sortKey: -1747213200594
+    children:
+      - url: "{{local}}/api/users?page=1&size=10"
+        name: get users
+        meta:
+          id: req_5b8acf15f14f47d78af15d87c9c10602
+          created: 1747213203801
+          modified: 1747217576911
+          isPrivate: false
+          sortKey: -1747213203801
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{local}}/api/users/c3db7cd6-e95e-4774-b66d-093dae9adb22"
+        name: update
+        meta:
+          id: req_107118dbc8434b25926f3a49b5dbe2bc
+          created: 1747214452949
+          modified: 1747215898940
+          isPrivate: false
+          sortKey: -1747212865257.5
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"firstName":"pekerja",
+            	"lastName":"ke1",
+            	"email":"pekerjaZZZ@example.com",
+            	"address":"Jalan sudirman" ,
+            	"phoneNumber":"111111"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDczMDE5MDAsImlhdCI6MTc0NzIxNTUwMCwicm9sZV9pZCI6IjIzZDUwNGY3LWFiYzktNDM1Ni1hNWJhLTkyZjQ5MTU0NTI2NSIsInVzZXJfaWQiOiI5OTlkNTgxYi05NTM0LTQ2YmMtODExYi0zNDAyYjgwOTQ0NmIifQ.St2g9_8HYQlL8zL_DWUU3Inuw8vclf7pLMbZgOX2LPo
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{local}}/api/users/f7da45c6-d9a7-419f-952b-860c2aaba2c0"
+        name: delete
+        meta:
+          id: req_8dee75f31e6143b3897ecfb832427d75
+          created: 1747215226953
+          modified: 1747215261524
+          isPrivate: false
+          sortKey: -1747215226953
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDczMDE0NDIsImlhdCI6MTc0NzIxNTA0Miwicm9sZV9pZCI6IjIzZDUwNGY3LWFiYzktNDM1Ni1hNWJhLTkyZjQ5MTU0NTI2NSIsInVzZXJfaWQiOiIzOWQ5ZTMwMy00MDljLTQzYjEtYmIxZC03NTU0NTA4MDYxM2YifQ.jNiRJeAivrNa4aZslun18Z7_1ZqH8XSA54aOc_KIR9M
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{local}}/api/users/c3db7cd6-e95e-4774-b66d-093dae9adb22"
+        name: update self employee
+        meta:
+          id: req_6660265cdebb4db7a1c0d2e03ec30f3c
+          created: 1747215564424
+          modified: 1747215719550
+          isPrivate: false
+          sortKey: -1747212695985.75
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"firstName":"pekerja",
+            	"lastName":"ke1",
+            	"email":"pekerjaZZZ@example.com",
+            	"address":"Jalan sudirman"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDczMDE5NDUsImlhdCI6MTc0NzIxNTU0NSwicm9sZV9pZCI6IjUyODg5NDljLTQyNzEtNDYxNy1hYTU1LTFiZDA3MGQ1YWViZCIsInVzZXJfaWQiOiJjM2RiN2NkNi1lOTVlLTQ3NzQtYjY2ZC0wOTNkYWU5YWRiMjIifQ.Zcb2UPNBiOT7Y9xpS63B_TasaLnc9zM5iIJft5lynjc
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{local}}/api/users?page=1&size=2"
+        name: get users
+        meta:
+          id: req_3a1b65c9ea6043a2baf56e65a078ae57
+          created: 1747216696217
+          modified: 1747216696216
+          isPrivate: false
+          sortKey: -1747213034529.25
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: annual leaves
+    meta:
+      id: fld_d5b7148543c84f11b560f872dfa02e8b
+      created: 1747215949968
+      modified: 1747215949968
+      sortKey: -1747215949968
+    children:
+      - url: "{{local}}/api/annual-leaves"
+        name: request leaves
+        meta:
+          id: req_4d703841f6e54e59a2bf453ce25fd8bd
+          created: 1747215952724
+          modified: 1747216883039
+          isPrivate: false
+          sortKey: -1747215952724
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"userId":"4cacbb80-da98-4b58-9508-c36008d25b5d",
+            	"reason":"test",
+            	"startDate":"2025-04-01",
+            	"endDate":"2025-04-02"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDczMDE5MDAsImlhdCI6MTc0NzIxNTUwMCwicm9sZV9pZCI6IjIzZDUwNGY3LWFiYzktNDM1Ni1hNWJhLTkyZjQ5MTU0NTI2NSIsInVzZXJfaWQiOiI5OTlkNTgxYi05NTM0LTQ2YmMtODExYi0zNDAyYjgwOTQ0NmIifQ.St2g9_8HYQlL8zL_DWUU3Inuw8vclf7pLMbZgOX2LPo
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{local}}/api/annual-leaves/19f54179-7607-45b3-9ac2-28cc9bf50219"
+        name: delete
+        meta:
+          id: req_304eea911c96438b820fee3f4f2d380a
+          created: 1747217674206
+          modified: 1747217685684
+          isPrivate: false
+          sortKey: -1747215589838.5
+        method: DELETE
+        body:
+          mimeType: application/json
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDczMDE5MDAsImlhdCI6MTc0NzIxNTUwMCwicm9sZV9pZCI6IjIzZDUwNGY3LWFiYzktNDM1Ni1hNWJhLTkyZjQ5MTU0NTI2NSIsInVzZXJfaWQiOiI5OTlkNTgxYi05NTM0LTQ2YmMtODExYi0zNDAyYjgwOTQ0NmIifQ.St2g9_8HYQlL8zL_DWUU3Inuw8vclf7pLMbZgOX2LPo
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{local}}/api/annual-leaves/c23258ea-d97d-4ba8-9656-2ac51798a469"
+        name: update
+        meta:
+          id: req_a36299dbab074ee99135baab1fe85232
+          created: 1747217750136
+          modified: 1747218232988
+          isPrivate: false
+          sortKey: -1747215771281.25
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"userId": "c3db7cd6-e95e-4774-b66d-093dae9adb22",
+            	"startDate": "2025-04-01 00:00:00.000",
+            	"endDate": "2025-04-05 00:00:00.000",
+            	"reason": "test",
+            	"status": "approved"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDczMDQ2MjYsImlhdCI6MTc0NzIxODIyNiwicm9sZV9pZCI6IjUyODg5NDljLTQyNzEtNDYxNy1hYTU1LTFiZDA3MGQ1YWViZCIsInVzZXJfaWQiOiJjM2RiN2NkNi1lOTVlLTQ3NzQtYjY2ZC0wOTNkYWU5YWRiMjIifQ.drtyiFL5YnSuURdsTf-npN1hzq3KCzgJfBjN1RGiPeo
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{local}}/api/annual-leaves"
+        name: get annuals
+        meta:
+          id: req_060eb5eaeaf24ceb84b39091c0ea30a3
+          created: 1747218447864
+          modified: 1747218452170
+          isPrivate: false
+          sortKey: -1747215862002.625
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"userId":"4cacbb80-da98-4b58-9508-c36008d25b5d",
+            	"reason":"test",
+            	"startDate":"2025-04-01",
+            	"endDate":"2025-04-02"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDczMDE5MDAsImlhdCI6MTc0NzIxNTUwMCwicm9sZV9pZCI6IjIzZDUwNGY3LWFiYzktNDM1Ni1hNWJhLTkyZjQ5MTU0NTI2NSIsInVzZXJfaWQiOiI5OTlkNTgxYi05NTM0LTQ2YmMtODExYi0zNDAyYjgwOTQ0NmIifQ.St2g9_8HYQlL8zL_DWUU3Inuw8vclf7pLMbZgOX2LPo
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_5c13917bb2fb81f365352b50f7e490578facc3a4
+    created: 1747211118851
+    modified: 1747211118851
+environments:
+  name: Base Environment
+  meta:
+    id: env_5c13917bb2fb81f365352b50f7e490578facc3a4
+    created: 1747211118846
+    modified: 1747211134746
+    isPrivate: false
+  data:
+    local: localhost:7070
+spec:
+  meta:
+    id: spc_92caf2f2e5734740aa5aed2964aae9c0
+    created: 1747211118843
+    modified: 1747211118843
